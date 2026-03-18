@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostPilot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Draggable Title Bar -->
+  <div id="titlebar">
+    <div id="drag-region">
+      <span id="logo">👻</span>
+      <span id="title">GhostPilot</span>
+    </div>
+    <div id="toolbar">
+      <!-- AI Site Picker -->
+      <div id="site-picker">
+        <button class="site-btn active" data-url="https://chatgpt.com" title="ChatGPT">
+          <span>GPT</span>
+        </button>
+        <button class="site-btn" data-url="https://gemini.google.com" title="Gemini">
+          <span>Gem</span>
+        </button>
+        <button class="site-btn" data-url="https://claude.ai" title="Claude">
+          <span>Cla</span>
+        </button>
+        <button class="site-btn" data-url="https://perplexity.ai" title="Perplexity">
+          <span>Per</span>
+        </button>
+      </div>
+
+      <!-- Controls -->
+      <div id="controls">
+        <button id="btn-opacity-down" title="Decrease opacity (⌘⇧↓)">
+          <span>◐</span>
+        </button>
+        <button id="btn-opacity-up" title="Increase opacity (⌘⇧↑)">
+          <span>◑</span>
+        </button>
+        <button id="btn-reload" title="Reload page">
+          <span>↻</span>
+        </button>
+        <button id="btn-hide" title="Hide (⌘⇧Space)">
+          <span>✕</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Webview Container -->
+  <div id="webview-container">
+    <div id="loading-screen">
+      <div class="loader-ghost">👻</div>
+      <div class="loader-text">Loading AI...</div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+    <webview id="ai-webview"
+      src="https://chatgpt.com"
+      partition="persist:ghostpilot"
+      allowpopups
+      useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    ></webview>
+  </div>
+
+  <!-- Status Bar -->
+  <div id="statusbar">
+    <span id="status-indicator">● Stealth Active</span>
+    <span id="status-shortcut">⌘⇧Space to toggle</span>
+  </div>
+
+  <!-- Resize Handle -->
+  <div id="resize-handle"></div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
